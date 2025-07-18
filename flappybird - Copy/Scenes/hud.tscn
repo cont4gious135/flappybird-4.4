@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7x4dg4dvh5up"]
+
+[ext_resource type="Script" uid="uid://7l054enxv1ut" path="res://Scripts/hud.gd" id="1_bjfho"]
+[ext_resource type="Texture2D" uid="uid://cbkjvmusy5ckt" path="res://flappy-bird-assets-master/sprites/message.png" id="1_fccik"]
+[ext_resource type="Texture2D" uid="uid://behgn3njess58" path="res://flappy-bird-assets-master/sprites/gameover.png" id="2_bjfho"]
+[ext_resource type="FontFile" uid="uid://cs1ecqlrh0di3" path="res://flappy-bird-assets-master/flappy-bird-font.otf/flappy-bird-font.otf" id="3_6fbih"]
+[ext_resource type="AudioStream" uid="uid://dhhmsesisuw1w" path="res://flappy-bird-assets-master/audio/swoosh.wav" id="5_t1xeu"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fccik"]
+action = &"flap"
+
+[sub_resource type="Shortcut" id="Shortcut_bjfho"]
+events = [SubResource("InputEventAction_fccik")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_bjfho")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.0
+offset_top = -100.0
+offset_right = 172.0
+offset_bottom = 430.24
+grow_horizontal = 2
+shortcut = SubResource("Shortcut_bjfho")
+texture_normal = ExtResource("1_fccik")
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -260.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6fbih")
+theme_override_font_sizes/font_size = 86
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.5
+offset_top = -143.03
+offset_right = 181.5
+offset_bottom = -63.03
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_bjfho")
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Swoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_t1xeu")
+bus = &"SFX"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
+[connection signal="finished" from="Swoosh" to="." method="_on_swoosh_finished"]

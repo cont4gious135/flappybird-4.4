@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqoaexwawyrlv"]
+
+[ext_resource type="Texture2D" uid="uid://c40dguxgl8weh" path="res://flappy-bird-assets-master/sprites/pipe-green.png" id="1_bu3vx"]
+[ext_resource type="Script" uid="uid://2s27pr437ux5" path="res://Scripts/pipe.gd" id="1_jtbfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n21g0"]
+size = Vector2(52, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
+size = Vector2(52, 320)
+
+[node name="Pipes" type="Area2D"]
+scale = Vector2(1.75, 1)
+script = ExtResource("1_jtbfi")
+
+[node name="BottomPipe" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+texture = ExtResource("1_bu3vx")
+offset = Vector2(0, -280)
+flip_v = true
+
+[node name="TopPipeCol" type="CollisionShape2D" parent="."]
+position = Vector2(0, -241)
+shape = SubResource("RectangleShape2D_n21g0")
+
+[node name="TopPipe" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
+texture = ExtResource("1_bu3vx")
+offset = Vector2(0, 280)
+
+[node name="BottomPipeCol" type="CollisionShape2D" parent="."]
+position = Vector2(0, 251)
+shape = SubResource("RectangleShape2D_hnit7")

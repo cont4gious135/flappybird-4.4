@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4alqfij5c5yi"]
+
+[ext_resource type="Texture2D" uid="uid://cbkjvmusy5ckt" path="res://flappy-bird-assets-master/sprites/message.png" id="1_ajlrp"]
+
+[node name="get_ready" type="CanvasLayer"]
+
+[node name="Message" type="Sprite2D" parent="."]
+position = Vector2(241, 359)
+scale = Vector2(2.04348, 2.02247)
+texture = ExtResource("1_ajlrp")

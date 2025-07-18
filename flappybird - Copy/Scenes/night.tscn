@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://j37dyie3vxky"]
+
+[ext_resource type="Texture2D" uid="uid://dvvxjgpl6kpy8" path="res://flappy-bird-assets-master/sprites/background-night.png" id="1_0cej7"]
+
+[node name="Night" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(240, 319.667)
+scale = Vector2(1.66667, 1.67014)
+texture = ExtResource("1_0cej7")

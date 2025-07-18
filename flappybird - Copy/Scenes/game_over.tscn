@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chdrlwceq4w06"]
+
+[ext_resource type="Texture2D" uid="uid://behgn3njess58" path="res://flappy-bird-assets-master/sprites/gameover.png" id="1_wtoum"]
+
+[node name="game_over" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 344)
+scale = Vector2(1.70387, 1.90476)
+texture = ExtResource("1_wtoum")
